@@ -1,8 +1,16 @@
+const path = require('path')
 export default {
-  devSever: {
-    proxy: {}
+  devServer: {
+    proxy: {
+      '/api': {
+        target: 'http://api.cc0820.top:8090',
+        pathRewrite: { '^/api': '' }
+      }
+    }
   },
   webpack: {
-    module: {}
+    alias: {
+      '@': path.resolve(__dirname, '.src')
+    }
   }
 }
